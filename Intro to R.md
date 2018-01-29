@@ -61,4 +61,10 @@ You can see that there are big gaps from the first quartile (25th percentile) to
         0.41473971 
 
 
-This takes a little explaining. First let's deal with that c(0.1, 0.2 ...). The c() stands for concatenante or combine; it means apply a formula to everything within the parentheses. In this case we want the quantile of ForeignPer for all these digits. Next, outside the first set of parentheses we've got "na.rm=TRUE"; this is here just in case we have any NA's in the mix. And we know that we've got 4 NA's because they showed up in the summary. If we did not include the na.rm line, we would get an error message.
+This takes a little explaining. First let's deal with that c(0.1, 0.2 ...). The c() stands for concatenate or combine; it means apply a formula to everything within the parentheses. In this case we want the quantile of ForeignPer for all these digits. Next, outside the first set of parentheses we've got "na.rm=TRUE"; this is here just in case we have any NA's in the mix. And we know that we've got 4 NA's because they showed up in the summary. NA's play havoc with statistics; they cannot, repeat cannot, be treated the same as a zero. You must explicitly tell R to ignore them. That is exactly what the command "na.rm=TRUE" does.
+
+Finally, let's visualize this with a histogram. R packages such as ggplot2 offer dazzling graphics. But you can get a good idea of what's going on with the simple tools built into base R.
+
+        > hist(Immigrants$ForeignPer)
+
+

@@ -47,8 +47,8 @@ Let's explore the data frame. One of the most useful R functions is str(), which
 Now let's take a closer look at the variable we just created, ForeignPer. We'll begin by using the function summary().
 
         > summary(Immigrants$ForeignPer)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-0.00000 0.06324 0.16310 0.19260 0.30390 0.69640       4 
+          Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+        0.00000 0.06324 0.16310 0.19260 0.30390 0.69640       4 
 
 The summary() function provides the minimum, maximum, mean, median, first and third quartiles plus the number of NA (not available) values.
 

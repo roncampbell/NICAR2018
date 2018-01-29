@@ -31,6 +31,7 @@ The readxl package is part of the tidyverse suite but must be separately loaded.
 The ever-helpful staff at IRE put all the data files somewhere on your laptops. I promise to find out where before class. The command below is a placeholder.
 
 > Immigrants <- read_excel("ACS_16_5YR_B05012.xlsx")
+
 > View(Immigrants)
 
 The command View() with a capital-V displays a portion of the data frame in the upper left pane. 
@@ -38,6 +39,7 @@ The command View() with a capital-V displays a portion of the data frame in the 
 This is nice, but we're missing something crucial -- the percentage of immigrants in each tract. It's a breeze in R: so easy that we'll do it first and then explain how we did it.
 
 > Immigrants <- Immigrants %>% 
+
 +     mutate(ForeignPer = ForeignBorn / Total)
 
 First "Immigrants <- Immigrants" means that we changed the Immigrants data frame and assigned the change back to itself. We used the pipe operator (%/%) as a way of saying "and then" to go to the next line. And then we said mutate, another word for change. Here's what we changed: We created a new column, ForeignPer, and we set it equal to the value of ForeignBorn divided by Total. So reading backwards, we divided ForeignBorn by Total, assigned that to the new variable ForeignPer, and changed the existing data frame Immigrants to include this new variable. See? I told you it was easier to do than to explain!

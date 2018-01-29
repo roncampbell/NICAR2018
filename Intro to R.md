@@ -52,4 +52,13 @@ Now let's take a closer look at the variable we just created, ForeignPer. We'll 
 
 The summary() function provides the minimum, maximum, mean, median, first and third quartiles plus the number of NA (not available) values.
 
+You can see that there are big gaps from the first quartile (25th percentile) to the median (50th percentile) to the 3rd quartile (75th percentile). We can explore these with the quantile() function.
 
+        > quantile(Immigrants$ForeignPer, c(0.1, 0.2, 0.3, 0.4,0.5, 0.6, 0.7, 0.8, 0.9), na.rm=TRUE)
+       10%        20%        30%        40%        50%        60%        70%        80% 
+        0.01815276 0.04795991 0.08415216 0.12211798 0.16310981 0.21134868 0.27006931 0.34238683 
+       90% 
+        0.41473971 
+
+
+This takes a little explaining. First let's deal with that c(0.1, 0.2 ...). The c() stands for concatenante or combine; it means apply a formula to everything within the parentheses. In this case we want the quantile of ForeignPer for all these digits. Next, outside the first set of parentheses we've got "na.rm=TRUE"; this is here just in case we have any NA's in the mix. And we know that we've got 4 NA's because they showed up in the summary. If we did not include the na.rm line, we would get an error message.

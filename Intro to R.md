@@ -19,14 +19,14 @@ And now a couple of short cuts that will save your wrists:
 In R we name things. We use an assignment operator to give them names. The assignment operator looks like this: <code><-</code>
 That's right, a left-pointing arrow followed by a minus sign. But there's a shortcut! On a Mac it's Option plus the minus sign (Option-). On the PC it's Alt plus the minus sign (Alt-). 
 
-Another shortcut that will come in handy is the pipe separator: <code>%/%</code>  For that use Command-Shift-M on the Mac or Control-Shift-M on the PC.
+Another shortcut that will come in handy is the pipe separator: <code>%>%</code>  For that use Command-Shift-M on the Mac or Control-Shift-M on the PC.
 
 Now -- on with the lesson! The IRE staff has already installed a few packages and some data on our computers, but we'll need to load them into R to work with them. 
 
     > library(tidyverse)
     > library(readxl)
 
-The readxl package is part of the tidyverse suite but must be separately loaded. Next we'll import American Community Survey data from 2016 listing the number of native and foreign-born persons in each ZIP code in Cook County, Illinois. In R tables like this are known as "data frames". We'll name this one "Immigrants" using the assignment operator (<-) that we introduced earlier. Remember the shortcut: Option- on a Mac, Alt- on a PC. 
+The readxl package is part of the tidyverse suite but must be separately loaded. Next we'll import American Community Survey data from 2016 listing the number of native and foreign-born persons in each ZIP code in Cook County, Illinois. In R, tables like this are known as "data frames". We'll name this one "Immigrants" using the assignment operator (<-) that we introduced earlier. Remember the shortcut for assignment operators: Option- on a Mac, Alt- on a PC. 
 
 The ever-helpful staff at IRE put all the data files somewhere on your laptops. I promise to find out where before class. The command below is a placeholder.
 
@@ -35,10 +35,21 @@ The ever-helpful staff at IRE put all the data files somewhere on your laptops. 
 
 The command View() with a capital-V displays a portion of the data frame in the upper left pane. 
 
-This is nice, but we're missing something crucial -- the percentage of immigrants in each tract. It's a breeze in R: so easy that we'll do it first and then explain how we did it.
+The View is nice, but we're missing something crucial -- the percentage of immigrants in each tract. Getting that percentage is a breeze in R: so easy that we'll do it first and then explain how we did it.
 
     > Immigrants <- Immigrants %>% 
       +    mutate(ForeignPer = ForeignBorn / Total)
 
-First "Immigrants <- Immigrants" means that we changed the Immigrants data frame and assigned the change back to itself. We used the pipe operator (%/%) as a way of saying "and then" to go to the next line. And then we said mutate, another word for change. Here's what we changed: We created a new column, ForeignPer, and we set it equal to the value of ForeignBorn divided by Total. So reading backwards, we divided ForeignBorn by Total, assigned that to the new variable ForeignPer, and changed the existing data frame Immigrants to include this new variable. See? I told you it was easier to do than to explain!
+First "Immigrants <- Immigrants" means that we changed the Immigrants data frame and assigned the change back to itself. We used the pipe operator (%>%) as a way of saying "and then" to go to the next line. And then, we said, mutate, or change. Here's what we changed: We created a new column, ForeignPer, and we set it equal to the value of ForeignBorn divided by Total. So reading backwards, we divided ForeignBorn by Total, assigned that to the new variable ForeignPer, and changed the existing data frame Immigrants to include this new variable. See? I told you it was easier to do than to explain!
+
+Let's explore the data frame. One of the most useful R functions is str(), which stands for structure. Run str(Immigrants) and see what you get.
+
+Now let's take a closer look at the variable we just created, ForeignPer. We'll begin by using the function summary().
+
+        > summary(Immigrants$ForeignPer)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+0.00000 0.06324 0.16310 0.19260 0.30390 0.69640       4 
+
+The summary() function provides the minimum, maximum, mean, median, first and third quartiles plus the number of NA (not available) values.
+
 

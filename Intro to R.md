@@ -6,7 +6,7 @@ This introductory class will give you a small idea of R's power. Before we get s
 
 First, you must install R and R Studio. Both are available for free online and are easily installed. (If you're attending this class at NICAR and taking this class on an IRE laptop, no worries -- the crack IRE staff has already installed both programs.)
 
-Second, you must install whatever packages you need. Most are available at [CRAN](cran.r-project.org), the Comprehensive R Archive Network. Installation is a two-step process. If you were to install the tidyverse, for example, you would enter the following commands at the console. The remarks to the right are comments, separated by hash signs, which the computer ignores.
+Second, you must install whatever packages you need. Most are available at [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. Installation is a two-step process. If you were to install the tidyverse, for example, you would enter the following commands at the console. The remarks to the right are comments, separated by hash signs, which the computer ignores.
 
     > install.packages("tidyverse")     # command to install package
 

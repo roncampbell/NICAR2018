@@ -26,7 +26,7 @@ Now -- on with the lesson! The IRE staff has already installed a few packages an
     > library(tidyverse)
     > library(readxl)
 
-The readxl package is part of the tidyverse suite but must be separately loaded. Next we'll import American Community Survey data from 2016 listing the number of native and foreign-born persons in each ZIP code in Cook County, Illinois. In R, tables like this are known as "data frames". We'll name this one "Immigrants" using the assignment operator (<-) that we introduced earlier. Remember the shortcut for assignment operators: Option- on a Mac, Alt- on a PC. 
+The readxl package is part of the tidyverse suite but must be separately loaded. Next we'll import American Community Survey data from 2016 listing the number of native and foreign-born persons in each census tract in Cook County, Illinois. In R, tables like this are known as "data frames". We'll name this one "Immigrants" using the assignment operator (<-) that we introduced earlier. Remember the shortcut for assignment operators: Option- on a Mac, Alt- on a PC. 
 
 The ever-helpful staff at IRE put all the data files somewhere on your laptops. I promise to find out where before class. The command below is a placeholder.
 
@@ -50,7 +50,7 @@ Now let's take a closer look at the variable we just created, ForeignPer. We'll 
           Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
         0.00000 0.06324 0.16310 0.19260 0.30390 0.69640       4 
 
-The summary() function provides the minimum, maximum, mean, median, first and third quartiles plus the number of NA (not available) values.
+The summary() function provides the minimum, maximum, mean, median, first and third quartiles plus the number of NA (not available) values. Notice also that we use the $-sign to connect data frames and columns.
 
 You can see that there are big gaps from the first quartile (25th percentile) to the median (50th percentile) to the 3rd quartile (75th percentile). We can explore these with the quantile() function.
 
@@ -68,3 +68,19 @@ Finally, let's visualize this with a histogram. R packages such as ggplot2 offer
         > hist(Immigrants$ForeignPer)
 
 ![](https://github.com/roncampbell/NICAR2018/blob/images/ImmigrantPer.png?raw=true)
+
+It looks like immigrants are concentrated. Some tracts have a lot of them while some have very few. Let's find out if immigrants tend to live together. Another way of putting that is by asking a question: Do most immigrants live in tracts with a high percentage of immigrants?
+
+To get the answer, we'll write a short script in R. In the upper left corner of R Studio click on the little white sheet with a green + sign. The first item in the menu is the one we want: R Script. And here's what we enter.
+
+        library(tidyverse)                  # load packages you might need
+        HighImmigrant <- Immigrants %>%     # create new data frame based on existing data
+         filter(ForeignPer >= .3039) %>%   # filter to get the 75th percentile
+         summarize(
+          Tracts = n(),
+          USBorn = sum(Native),
+          Immigrant = sum(ForeignBorn),
+          Everyone = sum(Total),
+          ImmigPer = (Immigrant / Everyone)
+         )
+The results: Of 1,320 Chicago area tracts, 311 have immigrant populations at or above the 75th percentile. Those tracts are home to 598,924 foreign-born residents, 54 percent of the county total. So yes, most immigrants in Cook County live near other immigrants.         

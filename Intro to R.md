@@ -120,7 +120,7 @@ Now where were we? Oh yes, looking for a relationship between income and the per
 
         > plot(ImmigInc$ForeignPer, ImmigInc$MedianHHInc)
  
-![] (https://github.com/roncampbell/NICAR2018/blob/images/ImmigIncome1.png?raw=true)
+![](https://github.com/roncampbell/NICAR2018/blob/images/ImmigIncome1.png?raw=true)
 
 Um, no.
 

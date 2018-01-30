@@ -102,5 +102,23 @@ The as.numeric() function changes a string to a number. We assign the column to 
 
 ![](https://github.com/roncampbell/NICAR2018/blob/images/IncomeHist.png?raw=true)
 
+It's clear that most of the 1,320 Cook County tracts have median incomes in the range of $30,000 to $60,000. But the histogram shows there are a small number of wealthy tracts. Let's join the Immigrants and Income data frames to see if there's a relationship between the percentage of immigrants and median household income in Chicago area tracts. We'll join the data frames using a column they share, "Id2"; it's the FIPS code that some of you have used in Census reporting.
 
+        > ImmigInc <- inner_join(Immigrants, Income, by="Id2")
+        > View(ImmigInc)
+        
+ This creates a joined data frame. The Geography field is duplicated. There's a way to join data frames without duplicating fields, but it's sometimes more trouble than it's worth. In this case it's easier to eliminate the duplicate field after creating it. 
+ 
+         > colnames(ImmigInc)[7]
+        [1] "Geography.y"
+        > ImmigInc[7] <- NULL
+        > View(ImmigInc)
+ 
+ First I used the colnames() function and an index contained in square brackets to get the name of the seventh column in ImmigInc. R confirmed that the seventh column was the one I wanted, the duplicate column Geography.y. Next I listed the data frame name with the index for the column, followed by the assignment operator and the word NULL. Translation: Terminate with extreme prejudice. Finally I told R to View the data frame. The duplicate column, Geography.y, is gone.
+ 
+Now where were we? Oh yes, looking for a relationship between income and the percentage of immigrants by tract. Let's do a scatterplot to see if we can find a relationship.
+
+        > plot(ImmigInc$ForeignPer, ImmigInc$MedianHHInc)
+ 
+![] ()
 

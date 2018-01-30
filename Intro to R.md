@@ -2,7 +2,7 @@
 
 R owes much of its popularity to its price. As open-source software it is, by definition, free. So is the most widely used development environment for R, <code>R Studio</code>. So are the vast majority of R packages. The tradeoff is the learning curve. R is complex. You won't learn it in a few hours or days. Unless you have a superb memory or spend most of your time working with R, you will probably need to keep a manual nearby. It is not Excel. But Excel cannot do a tenth of what R can do.
 
-This introductory class will give you a small idea of R's power. But first here are some rules of the R road:
+This introductory class will give you a small idea of R's power. But before we get started here are some rules of the R road:
 
 First, you must install R and R Studio. Both are available for free online and are easily installed. (If you're attending this class at NICAR and taking this class on an IRE laptop, no worries -- the crack IRE staff has already installed both programs.)
 

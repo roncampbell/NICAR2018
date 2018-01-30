@@ -126,5 +126,14 @@ Um, no.
 
 But what if we look closer at the tracts where immigrants comprise a greater share of the population. We know from our earlier research that more than half of immigrants live in neighborhoods where immigrants make up well over 30 percent of the population. Is there some tipping point where the level of immigration begins to affect income (or vice versa)? 
 
-To find out we'll write another script.
+To find out we'll create a subset of ImmigInc comprised of just those neighborhoods we identified earlier -- the 331 tracts in the 75th percentile and above where at least 30.39 percent of all residents were foreign-born.
+
+        > ImmigInc2 <- subset(ImmigInc, ForeignPer >= .3039)
+
+And here's the scatterplot:
+
+![]()
+
+The correlation (r-squared) has gone from a laughable 0.039 when all tracts are measured to a still weak 0.20 for the tracts with large immigrant populations. So there you have it: Statistics at work.
+
 

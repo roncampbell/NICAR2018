@@ -87,6 +87,7 @@ The results: Of 1,320 Chicago area tracts, 311 have immigrant populations at or 
 
 Now let's look at income in Cook County. We'll do that by importing census data on median household income by tract.
 
+        > Income <- read_excel("ACS_16_5YR_B19013.xlsx")
         > View(Income)
 
 When we imported the Immigrants data frame earlier, we used the str() function to look at the structure. If you do that for Income, you'll get a surprise -- R imported the MedianHHInc column as a string or character. We need to change that to a number so we can make calculations. 

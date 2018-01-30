@@ -67,4 +67,4 @@ Finally, let's visualize this with a histogram. R packages such as ggplot2 offer
 
         > hist(Immigrants$ForeignPer)
 
-![](https://github.com/roncampbell/NICAR2018/raw/master/ImmigrantPer.png)
+![](https://raw.github.com/roncampbell/NICAR2018/master/ImmigrantPer.png)

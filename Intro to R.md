@@ -84,3 +84,21 @@ To get the answer, we'll write a short script in R. In the upper left corner of 
           ImmigPer = (Immigrant / Everyone)
          )
 The results: Of 1,320 Chicago area tracts, 311 have immigrant populations at or above the 75th percentile. Those tracts are home to 598,924 foreign-born residents, 54 percent of the county total. So yes, most immigrants in Cook County live near other immigrants.         
+
+Now let's look at income in Cook County. We'll do that by importing census data on median household income by tract.
+
+        > View(Income)
+
+When we imported the Immigrants data frame earlier, we used the str() function to look at the structure. If you do that for Income, you'll get a surprise -- R imported the MedianHHInc column as a string or character. We need to change that to a number so we can make calculations. 
+
+        > Income$MedianHHInc <- as.numeric(Income$MedianHHInc)
+        Warning message:
+        NAs introduced by coercion
+ 
+The as.numeric() function changes a string to a number. We assign the column to the Income data frame to make the change permanent. The warning message tells us that there are some NA's (not available values) in the column. With that, let's see how incomes vary among Cook County tracts.
+
+> hist(Income$MedianHHInc)
+![]()
+
+
+

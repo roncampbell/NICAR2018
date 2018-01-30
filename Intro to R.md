@@ -97,8 +97,9 @@ When we imported the Immigrants data frame earlier, we used the str() function t
  
 The as.numeric() function changes a string to a number. We assign the column to the Income data frame to make the change permanent. The warning message tells us that there are some NA's (not available values) in the column. With that, let's see how incomes vary among Cook County tracts.
 
-> hist(Income$MedianHHInc)
-![]()
+        > hist(Income$MedianHHInc)
+
+![](https://github.com/roncampbell/NICAR2018/blob/images/IncomeHist.png?raw=true)
 
 
 

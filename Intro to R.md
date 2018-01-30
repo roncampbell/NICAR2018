@@ -120,5 +120,11 @@ Now where were we? Oh yes, looking for a relationship between income and the per
 
         > plot(ImmigInc$ForeignPer, ImmigInc$MedianHHInc)
  
-![] ()
+![] (https://github.com/roncampbell/NICAR2018/blob/images/ImmigIncome1.png?raw=true)
+
+Um, no.
+
+But what if we look closer at the tracts where immigrants comprise a greater share of the population. We know from our earlier research that more than half of immigrants live in neighborhoods where immigrants make up well over 30 percent of the population. Is there some tipping point where the level of immigration begins to affect income (or vice versa)? 
+
+To find out we'll write another script.
 

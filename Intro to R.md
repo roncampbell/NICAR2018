@@ -132,7 +132,7 @@ To find out we'll create a subset of ImmigInc comprised of just those neighborho
 
 And here's the scatterplot:
 
-![]()
+![](https://github.com/roncampbell/NICAR2018/blob/images/ImmigInc2.png?raw=true)
 
 The correlation (r-squared) has gone from a laughable 0.039 when all tracts are measured to a still weak 0.20 for the tracts with large immigrant populations. So there you have it: Statistics at work.
 
